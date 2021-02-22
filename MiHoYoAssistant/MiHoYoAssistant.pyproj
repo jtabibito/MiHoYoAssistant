@@ -1,0 +1,61 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>00a55b30-5e9a-4a34-9590-f56c5f27d279</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <StartupFile>main.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>MiHoYoAssistant</Name>
+    <RootNamespace>MiYouAssistant</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="LogWrapper\" />
+    <Folder Include="LogWrapper\src\" />
+    <Folder Include="LogWrapper\src\__pycache__\" />
+    <Folder Include="LogWrapper\__pycache__\" />
+    <Folder Include="src\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LogWrapper\LogWrapper.pyproj" />
+    <Content Include="LogWrapper\src\__pycache__\LogManager.cpython-37.pyc" />
+    <Content Include="LogWrapper\src\__pycache__\LogThread.cpython-37.pyc" />
+    <Content Include="LogWrapper\src\__pycache__\__init__.cpython-37.pyc" />
+    <Content Include="LogWrapper\__pycache__\__init__.cpython-37.pyc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LogWrapper\src\LogManager.py" />
+    <Compile Include="LogWrapper\src\LogThread.py" />
+    <Compile Include="main.py" />
+    <Compile Include="pubmodules.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\configs.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\requests.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
