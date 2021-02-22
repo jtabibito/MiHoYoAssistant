@@ -32,7 +32,7 @@ jobs:
 
       - name: Run sign
         env:
-          COOKIES: ${{ secrets.COOKIE }}
+          COOKIE: ${{ secrets.COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
           COOL_PUSH_SKEY: ${{ secrets.COOL_PUSH_SKEY }}
           COOL_PUSH_MODE: ${{ secrets.COOL_PUSH_MODE }}
