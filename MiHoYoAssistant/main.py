@@ -11,7 +11,7 @@ def main():
     if os.environ.get('COOKIE', '') == '':
         log.info(f'未配置账号cookies...')
         exit(0)
-    cookies = os.environ['COOKIES']
+    cookies = os.environ['COOKIE']
     
     log.info(f'🌀原神签到小助手 {version}')   
     log.info(f'用户已配置账号cookies数量{len(cookies)}')
