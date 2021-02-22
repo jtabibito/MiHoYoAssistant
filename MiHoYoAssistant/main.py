@@ -8,7 +8,7 @@ from src.configs import version
 
 def main():
     cookies = ''
-    if os.environ.get('COOKIES', '') == '':
+    if os.environ.get('COOKIE', '') == '':
         log.info(f'未配置账号cookies...')
         exit(0)
     cookies = os.environ['COOKIES']
