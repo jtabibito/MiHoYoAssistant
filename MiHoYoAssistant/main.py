@@ -19,7 +19,10 @@ def main():
     for i in range(len(cookies)):
         try:
             sign = request.SignRequest(cookies[i]).sign()
-            print(sign)
+            if not sign:
+                log.warning(f'第{i + 1}个用户未收到签到回执')
+            else:
+                print(sign)
             log.info(f'已帮助第{i + 1}个用户签到完成')
             success += 1
         except Exception as e:
