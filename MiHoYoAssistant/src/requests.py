@@ -162,7 +162,7 @@ class SignRequest(BaseRequest):
                 'uid': self._uids[i]
             }
             try:
-                _data = HttpRequest.toJson(sign_data, ensure_ascii=False)
+                _data = json.dumps(sign_data, ensure_ascii=False)
                 print(type(_data))
                 print(_data)
                 response = req.sendRequest('post', userConfig.SIGN_URL, headesr=self.getHeader(), data=_data.text)
