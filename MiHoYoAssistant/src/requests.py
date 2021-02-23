@@ -162,7 +162,10 @@ class SignRequest(BaseRequest):
                 'uid': self._uids[i]
             }
             try:
-                response = req.sendRequest('post', userConfig.SIGN_URL, headesr=self.getHeader(), data=HttpRequest.toJson(sign_data, ensure_ascii=False).text)
+                _data = HttpRequest.toJson(sign_data, ensure_ascii=False)
+                print(type(_data))
+                print(_data)
+                response = req.sendRequest('post', userConfig.SIGN_URL, headesr=self.getHeader(), data=_data.text)
             except Exception as e:
                 log.error(f'{e}')
                 raise Exception('Http request error...')
