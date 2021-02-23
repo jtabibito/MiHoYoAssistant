@@ -7,6 +7,7 @@ import uuid
 import time
 import random
 import hashlib
+import urllib
 from pubmodules import log
 from src.configs import userConfig
 
@@ -31,7 +32,7 @@ class HttpRequest:
                 session = requests.Session()
                 result = session.request(method=method, url=url,
                     params=params, data=data, headers=headers, **kwargs)
-            except HTTPError as e:
+            except urllib.error.HTTPError as e:
                 log.error(f'Http error:{e}')
                 log.error(f'Request {i + 1} failed, retrying...')
             except KeyError as e:
@@ -162,7 +163,7 @@ class SignRequest(BaseRequest):
                 'uid': self._uids[i]
             }
             try:
-                response = HttpRequest.toPython(req.sendRequest('post', userConfig.SIGN_URL, headesr=self.getHeader(), data=HttpRequest.toJson(sign_data, ensure_ascii=False)).text)
+                response = HttpRequest.toPython(req.sendRequest('post', userConfig.SIGN_URL, headers=self.getHeader(), data=HttpRequest.toJson(sign_data, ensure_ascii=False)).text)
             except Exception as e:
                 log.error(f'{e}')
                 raise Exception('Http request error...')
