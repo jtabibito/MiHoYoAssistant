@@ -2,7 +2,7 @@ name: "MiHoYoAssistant"
 
 on:
   schedule:
-    - cron: "0 20 * * *"  # scheduled at 04:00 (UTC+8) everyday
+    - cron: "0 19 * * *"  # scheduled at 04:00 (UTC+8) everyday
   workflow_dispatch:
 
 env:
