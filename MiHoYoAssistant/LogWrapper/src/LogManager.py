@@ -77,7 +77,7 @@ class Logger:
             text = '[{} {}]: '.format(args[0], args[1])
             for arg in args[2:]:
                 for msg in arg:
-                    text += msg
+                    text += str(msg)
             text = list(text)
             msg_len = len(text)
             insert = 0
