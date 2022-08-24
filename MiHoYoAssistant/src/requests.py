@@ -178,6 +178,7 @@ class SignRequest(BaseRequest):
             message['sign_state'] = response['message']
             msg_infos.append(self.message.format(**message))
         log.info('签到完成')
+        log.debug(msg_infos)
         return ''.join(msg_infos)
 
     @property
