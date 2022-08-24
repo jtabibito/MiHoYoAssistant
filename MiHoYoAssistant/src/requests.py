@@ -172,13 +172,12 @@ class SignRequest(BaseRequest):
                 continue
             code = response.get('retcode', 9999)
             if code != 0:
-                msg_infos.append(response)
+                msg_infos.append(str(response))
                 continue
             message['total_sign_day'] = total_sign_day + 1
             message['sign_state'] = response['message']
             msg_infos.append(self.message.format(**message))
         log.info('签到完成')
-        log.debug(msg_infos)
         return ''.join(msg_infos)
 
     @property
