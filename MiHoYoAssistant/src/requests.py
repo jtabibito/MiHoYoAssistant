@@ -75,7 +75,7 @@ class SignRequest(BaseRequest):
     @staticmethod
     def getDigest():
         # v2.3.0-web @povsister & @journey-ad
-        n = 'h8w582wxwgqvahcdkpvdhbh2w9casgfl'
+        n = '9nQiU3AV0rJSIBWgdynfoGMGKaklfbM7'
         i = str(int(time.time()))
         r = ''.join(random.sample(string.ascii_lowercase + string.digits, 6))
         c = hexdigest('salt=' + n + '&t=' + i + '&r=' + r)
@@ -127,6 +127,9 @@ class SignRequest(BaseRequest):
         awards = RoleRequest(self._cookies).getAward()['data']['awards']
         msg_infos = []
         for i in range(len(infos)):
+            if 'message' in infos[i] and infos[i]['message'] == '尚未登录':
+                log.warning(infos[i])
+                continue
             today = infos[i]['data']['today']
             total_sign_day = infos[i]['data']['total_sign_day']
             uid = str(self._uids[i]).replace(str(self._uids[i])[1:8], '******', 1)
