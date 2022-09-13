@@ -177,6 +177,8 @@ class SignRequest(BaseRequest):
             if code != 0:
                 msg_infos.append(str(response))
                 continue
+            else:
+                log.warning(response)
             message['total_sign_day'] = total_sign_day + 1
             message['sign_state'] = response['message']
             msg_infos.append(self.message.format(**message))
